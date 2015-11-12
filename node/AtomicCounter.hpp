@@ -58,7 +58,8 @@ public:
 		throw()
 	{
 #ifdef __GNUC__
-		return __sync_or_and_fetch(const_cast <volatile int *>(&_v),0);
+		return (int)_v;
+		//return __sync_or_and_fetch(const_cast <volatile int *>(&_v),0);
 #else
 #ifdef __WINDOWS__
 		return (int)_v;
@@ -75,7 +76,8 @@ public:
 		throw()
 	{
 #ifdef __GNUC__
-		return __sync_add_and_fetch(&_v,1);
+		return ++_v;
+		//return __sync_add_and_fetch(&_v,1);
 #else
 #ifdef __WINDOWS__
 		return ++_v;
@@ -92,7 +94,8 @@ public:
 		throw()
 	{
 #ifdef __GNUC__
-		return __sync_sub_and_fetch(&_v,1);
+		return --_v;
+		//return __sync_sub_and_fetch(&_v,1);
 #else
 #ifdef __WINDOWS__
 		return --_v;

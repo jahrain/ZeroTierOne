@@ -321,7 +321,7 @@ public:
 		throw()
 	{
 #if __BYTE_ORDER == __LITTLE_ENDIAN
-#if defined(__GNUC__) && (!defined(__OpenBSD__))
+#if 0 && defined(__GNUC__) && (!defined(__OpenBSD__))
 		return __builtin_bswap64(n);
 #else
 		return (
@@ -351,7 +351,7 @@ public:
 		throw()
 	{
 #if __BYTE_ORDER == __LITTLE_ENDIAN
-#if defined(__GNUC__) && !defined(__OpenBSD__)
+#if 0 && defined(__GNUC__) && !defined(__OpenBSD__)
 		return __builtin_bswap64(n);
 #else
 		return (
